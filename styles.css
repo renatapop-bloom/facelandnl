@@ -1,0 +1,364 @@
+:root {
+  --cream: #f7f1e8;
+  --cream-light: #fbf7f0;
+  --border: #e3ddd3;
+  --text-main: #151515;
+  --text-muted: #6b6b6b;
+  --gold: #c8a15a;
+  --shadow-soft: 0 18px 35px rgba(0, 0, 0, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: linear-gradient(to bottom, #ffffff, #faf5ee);
+  color: var(--text-main);
+}
+
+/* Password screen */
+
+.pw-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: radial-gradient(circle at top, var(--cream) 0, #ffffff 45%, #f5eee3 100%);
+}
+
+.pw-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border);
+  max-width: 430px;
+  width: 100%;
+  padding: 32px 28px 26px;
+}
+
+.wordmark {
+  font-size: 1.1rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+}
+
+.pw-subtitle {
+  margin-top: 4px;
+  font-size: 1.05rem;
+  color: var(--text-muted);
+}
+
+.pw-label {
+  display: block;
+  margin-top: 20px;
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.pw-input {
+  width: 100%;
+  margin-top: 6px;
+  padding: 11px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  font-size: 0.96rem;
+}
+
+.pw-input:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 1px rgba(200, 161, 90, 0.4);
+}
+
+.btn-primary {
+  margin-top: 14px;
+  width: 100%;
+  padding: 11px 16px;
+  border-radius: 999px;
+  border: none;
+  background: #000000;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.22);
+}
+
+.pw-error {
+  margin-top: 8px;
+  font-size: 0.86rem;
+  color: #b00020;
+  min-height: 18px;
+}
+
+.pw-meta {
+  margin-top: 12px;
+  font-size: 0.83rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* App shell */
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(227, 221, 211, 0.9);
+}
+
+.header-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-tagline {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.layout {
+  max-width: 1120px;
+  margin: 24px auto 40px;
+  padding: 0 18px;
+  display: grid;
+  grid-template-columns: minmax(0, 2.1fr) minmax(260px, 0.9fr);
+  gap: 24px;
+}
+
+@media (max-width: 880px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Guide card + accordion */
+
+.guide-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 22px 22px 18px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border);
+}
+
+.pill-row {
+  margin-bottom: 8px;
+}
+
+.pill {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--cream);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin-right: 6px;
+}
+
+.guide-title {
+  font-size: 1.25rem;
+}
+
+.guide-subtitle {
+  margin-top: 6px;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.accordion {
+  margin-top: 18px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.accordion-item + .accordion-item {
+  border-top: 1px solid var(--border);
+}
+
+.accordion-header {
+  width: 100%;
+  padding: 13px 16px;
+  border: none;
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.accordion-header:hover {
+  background: var(--cream-light);
+}
+
+.accordion-title {
+  font-size: 0.97rem;
+  font-weight: 500;
+}
+
+.accordion-meta {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--text-muted);
+  margin-left: 10px;
+}
+
+.accordion-header > span {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.accordion-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  background: #faf6ef;
+  color: var(--text-muted);
+}
+
+.accordion-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.22s ease;
+  background: #ffffff;
+}
+
+.accordion-body {
+  padding: 12px 18px 18px;
+  border-top: 1px solid #f0e7db;
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.accordion-body h3 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.accordion-body ul {
+  padding-left: 18px;
+  margin: 4px 0 10px;
+}
+
+.snippet {
+  margin-top: 4px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--cream-light);
+  font-size: 0.82rem;
+  color: var(--text-main);
+  text-decoration: none;
+}
+
+.chip:hover {
+  text-decoration: underline;
+}
+
+/* Tips panel */
+
+.tips {
+  position: sticky;
+  top: 80px;
+  align-self: flex-start;
+  background: var(--cream-light);
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  padding: 16px 16px 14px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.04);
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 880px) {
+  .tips {
+    position: static;
+    max-height: none;
+  }
+}
+
+.tips-intro {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.tip {
+  padding: 9px 10px 7px;
+  border-radius: 12px;
+  border: 1px dashed var(--border);
+  background: rgba(255, 255, 255, 0.8);
+  margin-bottom: 8px;
+}
+
+.tip-tag {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--text-muted);
+  margin-bottom: 3px;
+}
+
+.tip p {
+  margin-top: 2px;
+  font-size: 0.86rem;
+  color: var(--text-main);
+}
+
+/* Footer */
+
+.footer {
+  max-width: 1120px;
+  margin: 0 auto 26px;
+  padding: 0 18px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
